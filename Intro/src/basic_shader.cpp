@@ -84,4 +84,27 @@ bool basic_shader::is_good() {
 	return !(this->program == 0);
 }
 
-
+void basic_shader::set_bool(const std::string& var, bool val) const
+{
+	glUniform1i(glGetUniformLocation(this->program, var.c_str()), val);
+}
+void basic_shader::set_int(const std::string& var, int val) const
+{
+	glUniform1i(glGetUniformLocation(this->program, var.c_str()), val);
+}
+void basic_shader::set_float(const std::string& var, float val) const
+{
+	glUniform1f(glGetUniformLocation(this->program, var.c_str()), val);
+}
+void basic_shader::set_vec2(const std::string& var, glm::vec2& val) const
+{
+	glUniform2f(glGetUniformLocation(this->program, var.c_str()), val.x, val.y);
+}
+void basic_shader::set_vec3(const std::string& var, glm::vec3& val) const
+{
+	glUniform3f(glGetUniformLocation(this->program, var.c_str()), val.x, val.y, val.z);
+}
+void basic_shader::set_vec4(const std::string& var, glm::vec4& val) const
+{
+	glUniform4f(glGetUniformLocation(this->program, var.c_str()), val.x, val.y, val.z, val.w);
+}

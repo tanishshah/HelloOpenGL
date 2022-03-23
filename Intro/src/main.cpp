@@ -23,6 +23,8 @@ int main() {
 		glClear(GL_COLOR_BUFFER_BIT);
 		if (triangle_shader->is_good()) {
 			triangle_shader->useProgram();
+			auto colour = glm::vec4(0.3f, 0.2f, 0.1f, 1.0f);
+			triangle_shader->set_vec4("triangle_colour", colour);
 		}
 		else {
 			std::cerr << "Shader program failed" << std::endl;
@@ -36,8 +38,8 @@ int main() {
 	}
 
 	// exit out
-	delete triangle_shader;
 	triangle_shader = nullptr;
+	delete triangle_shader;
 	glDeleteVertexArrays(1, &v[1]);
 	glDeleteBuffers(1, &v[0]);
 	glfwTerminate();

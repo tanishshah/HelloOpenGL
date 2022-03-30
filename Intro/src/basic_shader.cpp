@@ -1,7 +1,6 @@
 #include "basic_shader.hpp"
 
-basic_shader::basic_shader(std::string vertex_file, std::string fragment_file){
-	this->program = 0;
+basic_shader::basic_shader(std::string vertex_file, std::string fragment_file) : program(0){
 	std::stringstream str_stream, str_stream2;
 	std::ifstream v_stream;
 	std::ifstream f_stream;

@@ -49,9 +49,9 @@ std::vector<GLuint> first_triangle() {
 
 	// define vertices
 	GLfloat vertices[] = {
-		0.0f, 0.1f, 0.0f,
-		0.1f, -0.1f, 0.0f,
-		-0.1f, -0.1f, 0.0f
+		0.0f, 0.5f, 0.0f, 0.5f, 1.0f,
+		0.5f, -0.5f, 0.0f, 1.0f, 0.0f
+		-0.5f, -0.5f, 0.0f, 0.0f, 0.0f
 	};
 
 	GLuint vbo, vao; // gl vertex buffer object and vertex array object
@@ -65,9 +65,12 @@ std::vector<GLuint> first_triangle() {
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), nullptr);
 	glEnableVertexAttribArray(0);
 
+	//texture co-ordinates
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(1);
 
 	std::vector<GLuint> v;
 	v.push_back(vbo);

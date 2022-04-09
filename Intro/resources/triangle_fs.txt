@@ -1,6 +1,11 @@
 #version 330
+
+in vec2 texture_loc;
 out vec4 colour;
+
 uniform vec4 triangle_colour;
+uniform sampler2D tri_texture;
+
 void main(){
-	colour = triangle_colour;
+	colour = texture(tri_texture, texture_loc);
 }

@@ -16,3 +16,4 @@ GLFWwindow* setup();
 // Function for using the escape key to get out of the window
 void exit_on_escape(GLFWwindow* window, int key, int scancode, int action, int mode);
 std::vector<GLuint> first_triangle();
+std::vector<GLuint> quad();
